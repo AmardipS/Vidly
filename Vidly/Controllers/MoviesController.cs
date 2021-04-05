@@ -10,17 +10,29 @@ namespace Vidly.Controllers
 {
     public class MoviesController : Controller
     {
+        public ApplicationDbContext _context { get; set; }
+
+        public MoviesController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
         // GET: Movies
         public ActionResult Index()
         {
-            var movies = GetMovies();
+            var movies = _context.Movies;
             return View(movies);
         }
 
         //GET: Movies/1
         public ActionResult Details(int id)
         {
-            var movie = GetMovies().SingleOrDefault(m => m.Id == id);
+            var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
             if (movie == null)
                 return HttpNotFound();
             return View(movie);
@@ -45,15 +57,6 @@ namespace Vidly.Controllers
 
             return View(randomMovieViewModel);
         }
-
-        public List<Movie> GetMovies()
-        {
-            var movies = new List<Movie>
-            {
-                new Movie{Id=1, Name= "Sanctum"},
-                new Movie{Id=2, Name="Die Hard"}
-            };
-            return movies;
-        }
+        
     }
 }
