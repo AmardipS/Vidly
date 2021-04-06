@@ -207,6 +207,46 @@
     <Compile Include="Migrations\202104061033054_PopulateNameInMembershipType.Designer.cs">
       <DependentUpon>202104061033054_PopulateNameInMembershipType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104061108376_AddedDateOfBirthToCustomer.cs" />
+    <Compile Include="Migrations\202104061108376_AddedDateOfBirthToCustomer.Designer.cs">
+      <DependentUpon>202104061108376_AddedDateOfBirthToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104061109364_PopulateDateOfBirthCustomer.cs" />
+    <Compile Include="Migrations\202104061109364_PopulateDateOfBirthCustomer.Designer.cs">
+      <DependentUpon>202104061109364_PopulateDateOfBirthCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104061144469_AddedGenreToMovies.cs" />
+    <Compile Include="Migrations\202104061144469_AddedGenreToMovies.Designer.cs">
+      <DependentUpon>202104061144469_AddedGenreToMovies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104061146038_PopulateGenreInMovies.cs" />
+    <Compile Include="Migrations\202104061146038_PopulateGenreInMovies.Designer.cs">
+      <DependentUpon>202104061146038_PopulateGenreInMovies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104061158296_AddedMoreFieldsInMovies.cs" />
+    <Compile Include="Migrations\202104061158296_AddedMoreFieldsInMovies.Designer.cs">
+      <DependentUpon>202104061158296_AddedMoreFieldsInMovies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104061159341_PopulateFieldsInMovies.cs" />
+    <Compile Include="Migrations\202104061159341_PopulateFieldsInMovies.Designer.cs">
+      <DependentUpon>202104061159341_PopulateFieldsInMovies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104061206592_PopulateFieldsInMovies1.cs" />
+    <Compile Include="Migrations\202104061206592_PopulateFieldsInMovies1.Designer.cs">
+      <DependentUpon>202104061206592_PopulateFieldsInMovies1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104061210511_PopulateFieldsInMovies2.cs" />
+    <Compile Include="Migrations\202104061210511_PopulateFieldsInMovies2.Designer.cs">
+      <DependentUpon>202104061210511_PopulateFieldsInMovies2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104061258345_UpdatedBirthDateToCustomers.cs" />
+    <Compile Include="Migrations\202104061258345_UpdatedBirthDateToCustomers.Designer.cs">
+      <DependentUpon>202104061258345_UpdatedBirthDateToCustomers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104061727027_PopulatedBirthDateInCustomers.cs" />
+    <Compile Include="Migrations\202104061727027_PopulatedBirthDateInCustomers.Designer.cs">
+      <DependentUpon>202104061727027_PopulatedBirthDateInCustomers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -280,6 +320,7 @@
     <Content Include="Views\Movies\Index.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
     <Content Include="Views\Movies\Random.cshtml" />
+    <Content Include="Views\Customers\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -321,6 +362,36 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104061033054_PopulateNameInMembershipType.resx">
       <DependentUpon>202104061033054_PopulateNameInMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104061108376_AddedDateOfBirthToCustomer.resx">
+      <DependentUpon>202104061108376_AddedDateOfBirthToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104061109364_PopulateDateOfBirthCustomer.resx">
+      <DependentUpon>202104061109364_PopulateDateOfBirthCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104061144469_AddedGenreToMovies.resx">
+      <DependentUpon>202104061144469_AddedGenreToMovies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104061146038_PopulateGenreInMovies.resx">
+      <DependentUpon>202104061146038_PopulateGenreInMovies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104061158296_AddedMoreFieldsInMovies.resx">
+      <DependentUpon>202104061158296_AddedMoreFieldsInMovies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104061159341_PopulateFieldsInMovies.resx">
+      <DependentUpon>202104061159341_PopulateFieldsInMovies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104061206592_PopulateFieldsInMovies1.resx">
+      <DependentUpon>202104061206592_PopulateFieldsInMovies1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104061210511_PopulateFieldsInMovies2.resx">
+      <DependentUpon>202104061210511_PopulateFieldsInMovies2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104061258345_UpdatedBirthDateToCustomers.resx">
+      <DependentUpon>202104061258345_UpdatedBirthDateToCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104061727027_PopulatedBirthDateInCustomers.resx">
+      <DependentUpon>202104061727027_PopulatedBirthDateInCustomers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
