@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -34,29 +35,6 @@ namespace Vidly.Controllers
         }
 
 
-        // SAVE: Movie
-        [HttpPost]
-        public ActionResult Save(Movie movie)
-        {
-            if (movie.Id == 0)
-            {
-                movie.DateAdded = DateTime.Now;
-                _context.Movies.Add(movie);
-            }
-            else
-            {
-                var movieInDb = _context.Movies.Single(m => m.Id == movie.Id);
-                movieInDb.Name = movie.Name;
-                movieInDb.GenreId = movie.GenreId;
-                movieInDb.ReleaseDate = movie.ReleaseDate;
-                movieInDb.NrInStock = movie.NrInStock;
-            }
-
-            _context.SaveChanges();
-
-            return RedirectToAction("Index", "Movies");
-        }
-
 
         // EDIT: Movie
         public ActionResult Edit(int id)
@@ -71,9 +49,54 @@ namespace Vidly.Controllers
                 Movie = movie,
                 Genres = _context.Genres.ToList()
             };
-           
+
             return View("MovieForm", viewModel);
         }
+
+
+
+        // SAVE: Movie
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Save(Movie movie)
+        {
+            
+            // Checking form validation 
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new MovieFormViewModel
+                {
+                    Movie = movie,
+                    Genres = _context.Genres.ToList()
+                };
+
+                return View("MovieForm", viewModel);
+            }
+            
+            // If movie is not in Db i.e. New movie
+            if (movie.Id == 0)
+            {
+                movie.DateAdded = DateTime.Now;
+                _context.Movies.Add(movie);
+            }
+            // Edit existing movie in Db
+            else
+            {
+                var movieInDb = _context.Movies.Single(m => m.Id == movie.Id);
+                movieInDb.Name = movie.Name;
+                movieInDb.GenreId = movie.GenreId;
+                movieInDb.ReleaseDate = movie.ReleaseDate;
+                movieInDb.NrInStock = movie.NrInStock;
+            }
+
+            _context.SaveChanges();
+            
+            // Redirect to Index view after saving data to Db
+            return RedirectToAction("Index", "Movies");
+        }
+
+
+       
 
         // GET: Movies
         public ActionResult Index()
