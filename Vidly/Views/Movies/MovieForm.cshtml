@@ -33,9 +33,14 @@
         @Html.ValidationMessageFor(m => m.Movie.NrInStock)
     </div>
 
-    @Html.HiddenFor(m => m.Movie.Id)
+    if (Model.Movie != null)
+    {
+        @Html.HiddenFor(m => m.Movie.Id)
+    }
+
+
     @Html.AntiForgeryToken()
-    
+
     <button type="submit" class="btn btn-primary" style="margin-top:10px">Save</button>
 }
 
